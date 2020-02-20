@@ -1,4 +1,13 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="content">
+  <ejs-grid #grid class="content-table" height="600"
+            [enableVirtualization]='true'>
+    <e-columns>
+      <e-column type="checkbox" width='50'></e-column>
+      <e-column field='name' [headerText]="'Name'" width='300'></e-column>
+    </e-columns>
+  </ejs-grid>
+</div>
+
+<button mat-button (click)="setData(noData)">No Data</button>
+<button mat-button (click)="setData(shortData)">Short Data</button>
+<button mat-button (click)="setData(longData)">Long Data</button>
