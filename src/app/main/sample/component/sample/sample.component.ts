@@ -1,14 +1,14 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {GridComponent, VirtualScrollService} from '@syncfusion/ej2-angular-grids';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {interval} from 'rxjs';
+import {GridComponent, VirtualScrollService} from '@syncfusion/ej2-angular-grids';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-sample',
+  templateUrl: './sample.component.html',
+  styleUrls: ['./sample.component.scss'],
+  providers: [VirtualScrollService]
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class SampleComponent implements OnInit, OnDestroy {
   @ViewChild('grid', {static: false})
   public grid: GridComponent;
 
@@ -31,12 +31,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-   setData(length: number): void {
+  setData(length: number): void {
     this.entities = [];
     this.grid.dataSource = this.entities;
     console.log(JSON.parse(JSON.stringify(this.entities)));
     this.grid.refresh();
-    setTimeout(()=> {
+    setTimeout(() => {
       if (length > 0) {
         for (let index = 0; index < length; index++) {
           this.entities.push({name: index.toString()});
@@ -45,6 +45,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.grid.refresh();
         console.log(JSON.parse(JSON.stringify(this.entities)));
       }
-    }, 2000);
+    }, 0);
   }
 }

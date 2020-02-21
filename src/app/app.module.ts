@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {GridAllModule} from '@syncfusion/ej2-angular-grids';
 import {TranslateModule} from '@ngx-translate/core';
-import {MatButtonModule} from '@angular/material';
+import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -14,8 +16,13 @@ import {MatButtonModule} from '@angular/material';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GridAllModule,
-    MatButtonModule
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
